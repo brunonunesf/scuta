@@ -1,7 +1,10 @@
 # Popular a demonstração no site público
 
-**Estado:** proposta para decisão do grupo. Nada disto foi executado no banco público. O script foi testado só em
-backends locais descartáveis.
+**Estado em 27/11/2026:** demonstração ativada no site público após autorização do Bruno para preservar as contas atuais e acrescentar a carga. PR #5 mesclado e API publicada no commit `8b6d570302a0c6326fc319f8f57364499540243b`.
+
+Foram preservadas as 3 contas anteriores e a review existente. A carga criou 25 contas, 50 reviews, 20 seguidas e 30 curtidas: ficaram 28 contas, 51 reviews e 56 músicas (50 brasileiras + 6 de teste preservadas). `CATALOGO_MUSICAL_PATH=data/musicas_publico.json` foi configurado no Render; não houve troca nem limpeza de banco. A senha privada das contas de demonstração está guardada no ambiente do serviço Render como `SCUTA_DEMO_PASSWORD`, sem publicação no Git ou no chat.
+
+O script foi validado em PostgreSQL descartável, inclusive segunda execução sem duplicação, e depois executado contra a API pública com permissão para as músicas extras existentes. Conferidos catálogo (56), feed (7 reviews para a conta de referência), Descobrir (17 sugestões) e acesso à review anterior. O passo a passo abaixo registra a proposta original de banco separado; nesta execução foi escolhida explicitamente a preservação do banco atual.
 
 ## Por que isto existe
 
