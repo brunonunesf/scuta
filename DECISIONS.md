@@ -919,3 +919,7 @@ início a frio; nenhum upgrade pago foi contratado. Deploys do Render permanecem
 manuais após validação. Procedimentos, evidências e limites estão no guia 08.
 Implementação e validação assistidas pelo Codex; testes automatizados e a
 jornada real não equivalem a revisão humana independente.
+
+## Demonstração pública ativada — 27/11/2026
+
+Bruno autorizou preservar as contas atuais e acrescentar a demonstração do PR #5. A configuração anterior de banco sem seed foi atualizada por essa decisão: permanecem o mesmo banco Neon e todos os dados anteriores; acrescentaram-se 25 contas, 50 reviews, 20 seguidas e 30 curtidas pela API. O catálogo público de 50 músicas foi somado às 6 músicas de teste existentes. Sem exclusões ou troca de banco. Senha privada da demonstração armazenada apenas no ambiente do Render, sob SCUTA_DEMO_PASSWORD. A carga não roda no boot; republicações importam apenas o catálogo idempotente e preservam as contas. Validação e limites em docs/popular-demonstracao-publica.md.
