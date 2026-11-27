@@ -10,6 +10,41 @@ A rede se chama **scuta**. MeetMusic foi apenas o nome provisório do começo do
 
 [▶ Assista à demonstração do scuta](https://www.youtube.com/watch?v=amKUq18zHKE) (1 min 29 s, no YouTube). Mostra o site com dados de demonstração.
 
+## O que o scuta faz hoje
+
+- **Conta e perfil:** cadastro, login, perfil com reputação, seguir e deixar de seguir.
+- **Reviews de músicas do catálogo:** nota de 0 a 10 e texto opcional, uma review por pessoa e música. O feed mostra as reviews de quem você segue, com curtidas e comentários. Há busca de músicas, página da música e "mais avaliadas".
+- **Árvore de recomendações:** uma review pode partir de outra ("escrever review a partir desta"), e a corrente aparece como árvore. A origem pode ser corrigida, e os descendentes e a reputação acompanham.
+- **Reputação:** curtidas e novas reviews derivadas pontuam a corrente, com **4 pontos** para quem escreveu, **2** para a origem imediata e **1** para a seguinte.
+- **Descobrir:** sugestões de reviews de músicas que você ainda não avaliou, com uma explicação em cada uma, a partir do que você avaliou e curtiu (TF-IDF sobre artista, gênero e tags).
+- **Bibliotecas:** as músicas que você descobriu por outras pessoas (privadas por padrão) e as que você indicou (públicas), com controle de privacidade.
+- **Reescutas:** o aviso "Ouvi novamente", com comentário opcional e no máximo um por pessoa e música a cada 24 horas.
+
+**Ainda não existem:** a integração com Spotify e Deezer, os grupos de amigos e as mensagens diretas. O parecer técnico de cada um está em [DECISIONS.md](DECISIONS.md). O catálogo da demonstração tem 20 músicas brasileiras.
+
+## Como rodar a demonstração
+
+Precisa de [uv](https://docs.astral.sh/uv/) e Node.js. Em dois terminais, a partir da raiz do repositório:
+
+```bash
+# terminal 1: backend com a demonstração carregada (25 contas, 50 reviews)
+cd backend
+uv sync
+mkdir -p demo
+DATABASE_URL=sqlite:///./demo/issue13.db CATALOGO_MUSICAL_PATH=data/musicas_demo.json uv run python scripts/seed.py
+DATABASE_URL=sqlite:///./demo/issue13.db CATALOGO_MUSICAL_PATH=data/musicas_demo.json uv run uvicorn app.main:app --port 8000
+```
+
+```bash
+# terminal 2: o site
+cd frontend
+npm install
+cp .env.local.example .env.local
+npm run dev
+```
+
+Abra `http://localhost:3000` e entre com `daniel_dantas` e a senha `demo-trilha-13-2026` (todas as contas da demonstração usam a mesma senha). Para criar uma conta nova, use "Criar conta". O banco da demonstração é um arquivo separado (`backend/demo/issue13.db`).
+
 ## Ideias discutidas
 
 - **Feed de reviews de músicas**, com curtidas e comentários.
@@ -18,11 +53,11 @@ A rede se chama **scuta**. MeetMusic foi apenas o nome provisório do começo do
 - **Bibliotecas pessoais:** músicas descobertas por meio de outras pessoas e músicas recomendadas pelo próprio usuário.
 - **Perfis e follow:** acompanhar pessoas, suas recomendações, reputação e árvores.
 
-Exemplo: Ana recomenda uma música; Júlia a descobre pelo post de Ana e publica uma review derivada; Pedro faz o mesmo pelo post de Júlia. A corrente fica **Ana → Júlia → Pedro**. Uma curtida no post de Pedro pode pontuar os três, com valores decrescentes. **Curtir não cria uma conexão na árvore; publicar uma review derivada cria.** A fórmula de pontuação ainda precisa ser definida pelo time.
+Exemplo: Ana recomenda uma música; Júlia a descobre pelo post de Ana e publica uma review derivada; Pedro faz o mesmo pelo post de Júlia. A corrente fica **Ana → Júlia → Pedro**. Uma curtida no post de Pedro pode pontuar os três, com valores decrescentes. **Curtir não cria uma conexão na árvore; publicar uma review derivada cria.** A fórmula aprovada dá 4 pontos a quem escreveu, 2 à origem imediata e 1 à seguinte (detalhes em [DECISIONS.md](DECISIONS.md)).
 
 Também foram sugeridos grupos de amigos para comparar e conversar sobre o que ouviram na semana e mensagens diretas. São possibilidades em discussão, sem compromisso de implementação nesta etapa.
 
-## Decisões recentes e próximas entregas
+## Decisões de produto e o que já foi entregue
 
 Cada pessoa terá uma review por música, com texto editável. Reviews derivadas têm uma única origem, que poderá ser corrigida sem criar ciclos; seus descendentes serão preservados e a reputação anterior será recalculada conforme a nova árvore.
 
@@ -32,17 +67,17 @@ O aviso “Ouvi novamente” terá comentário opcional e limite de uma publica�
 - [#19: correção de origem](https://github.com/brunonunesf/miniprojeto3-musica/issues/19) e [#20: recálculo de reputação](https://github.com/brunonunesf/miniprojeto3-musica/issues/20).
 - [#21: Spotify](https://github.com/brunonunesf/miniprojeto3-musica/issues/21) e [#22: Deezer](https://github.com/brunonunesf/miniprojeto3-musica/issues/22): integrações opcionais para sugerir reescutas, com confirmação antes de publicar e dependentes da disponibilidade de acesso às APIs.
 
-Essas são decisões de planejamento, ainda não funcionalidades prontas. O registro manual continuará disponível. A fórmula final de reputação e a prioridade das evoluções para a entrega permanecem a combinar em [DECISIONS.md](DECISIONS.md).
+Estas decisões já estão implementadas, exceto o Spotify e o Deezer, que seguem como integrações opcionais, sem implementação (o parecer técnico está em [DECISIONS.md](DECISIONS.md)). O registro manual continua disponível.
 
 ## Descobrir para você
 
-A proposta inclui uma área própria de sugestões de reviews, baseada em gêneros, tags e artista das músicas e nas curtidas e análises do usuário. Sem interações, a área mostra reviews recentes e variadas. [Planejamento e critérios da issue #23](https://github.com/brunonunesf/miniprojeto3-musica/issues/23). É uma das prioridades para a demonstração de 27/11, junto às árvores de recomendações.
+O scuta tem uma área própria de sugestões de reviews, baseada em gêneros, tags e artista das músicas e nas curtidas e análises do usuário. Sem interações, a área mostra reviews recentes e variadas. [Planejamento e critérios da issue #23](https://github.com/brunonunesf/miniprojeto3-musica/issues/23). A área está implementada (`GET /descobrir`, com o recomendador TF-IDF do Bruno e uma explicação em cada sugestão).
 
-## Estado inicial
+## Estado atual
 
-Este repositório contém a base oficial do [miniprojeto 3](https://github.com/TrilhaUFPB/miniproj3) e a documentação inicial da proposta. A rede musical ainda não está implementada. A autenticação tem implementação de backend e frontend nesta branch, com cadastro, entrada automática, login, sessão persistente e saída; aguarda revisão do time. As demais funcionalidades evoluem nas issues do time.
+Este repositório contém a base oficial do [miniprojeto 3](https://github.com/TrilhaUFPB/miniproj3) e a documentação inicial da proposta. A rede musical está implementada (veja "O que o scuta faz hoje", acima). A autenticação tem cadastro, entrada automática, login, sessão persistente e saída.
 
-- Backend: FastAPI, SQLAlchemy e SQLite.
+- Backend: FastAPI e SQLAlchemy, com SQLite no desenvolvimento local e PostgreSQL (Neon) na publicação.
 - Frontend: Next.js, TypeScript e Tailwind.
 - [Decisões e pontos em aberto](DECISIONS.md).
 - [Instruções originais do projeto](docs/README-base-trilha.md), [avaliação](RUBRICA.md), [catálogo](CATALOGO.md) e [guias](docs/guias/).
@@ -50,8 +85,8 @@ Este repositório contém a base oficial do [miniprojeto 3](https://github.com/T
 ### Preparar o ambiente
 
 ```bash
-git clone https://github.com/brunonunesf/miniprojeto3-musica.git
-cd miniprojeto3-musica
+git clone https://github.com/brunonunesf/scuta.git
+cd scuta
 cd backend && uv sync && cd ..
 cd frontend && npm install && cp .env.local.example .env.local && cd ..
 make check
@@ -108,7 +143,7 @@ Cada integrante pode contribuir com código e documentação. Para implementaç�
 
 As [issues iniciais](https://github.com/brunonunesf/miniprojeto3-musica/issues) organizam o núcleo, os diferenciais musicais e a avaliação de ideias opcionais. São um ponto de partida: qualquer integrante com acesso ao repositório pode criar novas issues, sugerir funcionalidades e discutir mudanças de escopo. Não é necessário estar atribuído a uma issue para propor outra. As responsabilidades serão combinadas pelo time.
 
-Usem o template de feature ou abram uma issue em branco para decisões, dúvidas e novas ideias. O repositório é privado: pessoas sem acesso precisam ser convidadas antes de participar.
+Usem o template de feature ou abram uma issue em branco para decisões, dúvidas e novas ideias. Este repositório (`scuta`) é um fork público do projeto do Trilha: só quem for convidado como colaborador altera o código. As issues e os PRs até 27/11 ficaram no repositório original, renomeado para [`scuta-backup`](https://github.com/brunonunesf/scuta-backup).
 
 **Entrega:** 27/11/2026, conforme o material oficial. O guia de setup menciona um convite do GitHub Classroom para gerar o repositório do time. Como esse convite não foi fornecido, este repositório foi preparado na conta de Bruno; confirmem com a organização se a entrega deverá ser vinculada ou transferida para o Classroom.
 
