@@ -1,9 +1,11 @@
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select
 
+from app.config import origens_cors
 from app.core.contadores import contador_iniciais
 from app.db import Base, SessionLocal, atualizar_esquema_antigo, engine
 from app.models.user import User
@@ -44,9 +46,11 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Rede Social da Trilha", lifespan=lifespan)
 
+_origens, _regex_de_origens = origens_cors(os.environ)  # o site publicado entra por CORS_ORIGINS (ver app/config.py)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=_origens,
+    allow_origin_regex=_regex_de_origens,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -38,6 +38,10 @@ Essas são decisões de planejamento, ainda não funcionalidades prontas. O regi
 
 A proposta inclui uma área própria de sugestões de reviews, baseada em gêneros, tags e artista das músicas e nas curtidas e análises do usuário. Sem interações, a área mostra reviews recentes e variadas. [Planejamento e critérios da issue #23](https://github.com/brunonunesf/miniprojeto3-musica/issues/23). É uma das prioridades para a demonstração de 27/11, junto às árvores de recomendações.
 
+## Publicação (deploy)
+
+O site (Vercel) só funciona com o backend publicado (Render). O passo a passo, o arquivo `render.yaml` e o verificador (`backend/scripts/verificar_deploy.py`) estão em [`docs/deploy.md`](docs/deploy.md).
+
 ## Estado inicial
 
 Este repositório contém a base oficial do [miniprojeto 3](https://github.com/TrilhaUFPB/miniproj3) e a documentação inicial da proposta. A rede musical ainda não está implementada. A autenticação tem implementação de backend e frontend nesta branch, com cadastro, entrada automática, login, sessão persistente e saída; aguarda revisão do time. As demais funcionalidades evoluem nas issues do time.

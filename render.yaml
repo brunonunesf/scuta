@@ -1,0 +1,26 @@
+# Backend no Render (plano gratuito). Passo a passo em docs/deploy.md.
+#
+# No Render: New + > Blueprint > escolha este repositório. Ele lê este arquivo e cria o serviço.
+# O plano gratuito apaga o disco a cada reinício; por isso a demonstração é carregada de novo a cada subida (startCommand).
+services:
+  - type: web
+    name: scuta-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install uv && uv sync --frozen
+    # 1) carrega a demonstração (25 pessoas, 50 reviews), que cria o banco do zero; 2) sobe o servidor.
+    startCommand: uv run python scripts/seed.py && uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /openapi.json
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      # O seed só aceita este caminho (relativo a backend/): é o banco da demonstração.
+      - key: DATABASE_URL
+        value: sqlite:///./demo/issue13.db
+      # O catálogo da demonstração (20 músicas brasileiras). Sem isto o backend usa só 6 músicas fictícias.
+      - key: CATALOGO_MUSICAL_PATH
+        value: data/musicas_demo.json
+      # O endereço do site na Vercel (ex.: https://scuta.vercel.app), sem barra no fim. Você preenche no painel do Render.
+      - key: CORS_ORIGINS
+        sync: false

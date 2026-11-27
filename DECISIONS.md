@@ -898,3 +898,17 @@ Completa a #12 no backend (as bibliotecas já estão na `main`). **A integraçã
 **O que já está pronto para receber qualquer um deles:** autenticação, `listar_reviews`, a tabela de seguidores, as bibliotecas (#100), as reescutas (#105) e a criação automática de tabelas novas sem migração.
 
 Claude Code redigiu este parecer; a revisão por outra pessoa do time continua pendente.
+
+## Deploy público: backend no Render e site na Vercel — 27/11/2026
+
+O site publicado só funciona com um backend publicado: ele chama o backend, e a Vercel só hospeda o frontend. O passo a passo está em `docs/deploy.md`; aqui ficam as decisões.
+
+- **O que mudou no repositório:** o CORS passou a vir de variável de ambiente (`CORS_ORIGINS`, endereços do site separados por vírgula, e `CORS_ORIGIN_REGEX` opcional para as prévias da Vercel). **Sem a variável, vale só `http://localhost:3000`, então nada muda para quem roda localmente.** `*` é recusado: junto com o envio de credenciais o navegador o rejeitaria, e ele liberaria qualquer site a falar com a API. Antes o endereço estava fixo no `main.py`, e o navegador bloquearia todo pedido do site público.
+- **A demonstração carrega sozinha:** o plano gratuito do Render apaga o disco a cada reinício, então o comando de início roda o `scripts/seed.py` (que cria o banco da demonstração do zero) e só depois sobe o servidor. **Não foi preciso mexer no código da aplicação** para isso. O `render.yaml` na raiz registra o serviço, o comando e as variáveis (`DATABASE_URL`, `CATALOGO_MUSICAL_PATH` e `CORS_ORIGINS`).
+- **O catálogo da demonstração precisa de `CATALOGO_MUSICAL_PATH=data/musicas_demo.json`;** sem ele o backend usa só as 6 músicas fictícias de teste.
+- **`DEBUG` não pode ser ligado em produção:** com ele a autenticação aceita um atalho de teste (`X-User-Id`).
+- **Verificação:** `backend/scripts/verificar_deploy.py` confere um deploy de fora (cadastro, login, catálogo e pessoas da demonstração, seguir, publicar, feed, Descobrir, reputação, CORS e se o site aponta para o backend e não para `localhost`), com a causa e a correção para cada problema. Testado contra o site público de hoje, ele acusa corretamente que o site aponta para `localhost` e que falta o CORS.
+- **Verificado em simulação de produção** (não em um Render de verdade): o comando de início do `render.yaml` a partir de uma pasta inexistente; o backend em um endereço e o site compilado com `NEXT_PUBLIC_API_URL` em **outro**; e o fluxo da banca (cadastro, login, post, seguir, feed, Descobrir, reputação, árvore e biblioteca) em um navegador, no computador e no celular de 360 px, sem nenhum erro de CORS.
+- **Limites do plano gratuito:** o disco apaga a cada reinício (contas e reviews criadas por quem testar somem, e a demonstração volta ao normal); sem acessos o Render hiberna e a primeira abertura leva cerca de 1 minuto; e é preciso manter uma instância só, porque a árvore e a reputação ficam na memória de um processo.
+- **O que não foi feito (depende de contas):** criar o serviço no Render e ligar a Vercel ao repositório `scuta` com `NEXT_PUBLIC_API_URL`. O repositório de entrega passou a ser o fork `brunonunesf/scuta`; as issues e os PRs anteriores continuam no repositório renomeado `scuta-backup`.
+- Claude Code implementou a configuração, o verificador e o passo a passo. O código ainda precisa ser revisado por outra pessoa do time.
