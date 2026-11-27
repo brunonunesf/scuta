@@ -83,3 +83,13 @@ A validação é estrutural e não testa existência, disponibilidade, formato d
 `carregar_catalogo()` e o startup do backend usam `CATALOGO_MUSICAL_PATH` quando definida. Caminho relativo é resolvido a partir de `backend/`, independentemente do diretório de execução. Exemplo: `CATALOGO_MUSICAL_PATH=data/musicas_demo.json`. Um argumento explícito a `carregar_catalogo(caminho)` tem precedência; sem variável, o padrão continua `data/musicas.json` (seis fictícias). Configuração vazia/inválida falha, sem retornar silenciosamente ao padrão.
 
 O validador de linha de comando também usa a configuração quando não recebe arquivo explícito. Essa seleção não baixa músicas nem altera IDs. Na demonstração, iniciar seed e aplicação com a mesma variável para não importar outro catálogo ao reiniciar.
+
+## Capas do catálogo público — 27/11/2026
+
+As 50 músicas reais de `musicas_publico.json` têm `capa_url` HTTPS. As 20 compartilhadas com `musicas_demo.json` usam as mesmas imagens. As seis faixas fictícias continuam sem capa. Só o campo visual foi alterado: chaves, títulos, artistas, versões e reviews foram preservados.
+
+`referencias_capas_publico.json` registra páginas de origem, álbum/edição quando disponível, critério e data da conferência. Para as 20 referências Spotify existentes, a miniatura vem do oEmbed do mesmo link. Nas outras 30, selecionamos uma referência visual de lançamento contendo a música do artista na Apple Music. Algumas capas são de compilações/reedições, inclusive remasterizações: as entradas não identificam uma edição específica, e a escolha visual não comprova equivalência de gravações nem altera a identidade musical. Aquarela do Brasil referencia uma compilação de Ary Barroso, evitando um resultado com capa de Rosa Passos.
+
+As URLs foram acessadas e as imagens decodificadas na validação. Não há buscas no runtime nem necessidade de credenciais. A importação idempotente atualiza as músicas existentes sem recriar o banco; imagens indisponíveis usam o fallback musical da interface.
+
+Fontes técnicas: [Spotify oEmbed](https://developer.spotify.com/documentation/embeds/reference/oembed) e [iTunes Search API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/UnderstandingSearchResults.html).
