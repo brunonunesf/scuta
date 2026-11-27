@@ -77,7 +77,7 @@ O scuta tem uma área própria de sugestões de reviews, baseada em gêneros, ta
 
 Este repositório contém a base oficial do [miniprojeto 3](https://github.com/TrilhaUFPB/miniproj3) e a documentação inicial da proposta. A rede musical está implementada (veja "O que o scuta faz hoje", acima). A autenticação tem cadastro, entrada automática, login, sessão persistente e saída.
 
-- Backend: FastAPI, SQLAlchemy e SQLite.
+- Backend: FastAPI e SQLAlchemy, com SQLite no desenvolvimento local e PostgreSQL (Neon) na publicação.
 - Frontend: Next.js, TypeScript e Tailwind.
 - [Decisões e pontos em aberto](DECISIONS.md).
 - [Instruções originais do projeto](docs/README-base-trilha.md), [avaliação](RUBRICA.md), [catálogo](CATALOGO.md) e [guias](docs/guias/).
