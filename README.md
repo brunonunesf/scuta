@@ -96,7 +96,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Os testes do navegador iniciam frontend de produção e backend nas portas 3000 e 8000, que precisam estar livres. Eles usam um SQLite descartável em pasta temporária, com `DEBUG=false`, sem alterar o banco local. O build deve usar `NEXT_PUBLIC_API_URL=http://localhost:8000` (valor padrão do projeto). Caso já tenha Google Chrome instalado, pode usar `PLAYWRIGHT_CHANNEL=chrome npm run test:e2e`.
+Os testes do navegador iniciam frontend de produção e backend nas portas 3000 e 8000, que precisam estar livres. Eles usam um SQLite descartável em pasta temporária, com `DEBUG=false`, sem alterar o banco local. Para o build de testes local, use `ALLOW_LOCAL_API_FOR_TESTS=true NEXT_PUBLIC_API_URL=http://localhost:8000 npm run build` em `frontend/`. A exceção de localhost é bloqueada na Vercel. Caso já tenha Google Chrome instalado, pode usar `PLAYWRIGHT_CHANNEL=chrome npm run test:e2e`.
 
 A suíte cobre desktop e largura de 360 px, cadastro, login, refresh, Bearer, páginas privadas, token inválido, falhas de conexão/servidor, saída entre abas, teclado e validação de formulários. Capturas ficam em `frontend/test-results/`, ignorado pelo Git. Os testes de outras features ainda marcados como pendentes não significam conclusão do núcleo.
 
@@ -142,3 +142,7 @@ quanto no backend. O adaptador incorpora as origens oficiais do #78 e permite a 
 com corrente, ramo e raiz independente. O encerramento da entrega de dados não
 declara Descobrir ou reputação pelo perfil/API concluídos; veja os limites e o
 roteiro na [documentação da demonstração](docs/demo-issue-13.md).
+
+## Publicação pública
+
+O frontend público usa Vercel, a API usa Render Free e os dados ficam em PostgreSQL no Neon Free. O procedimento reproduzível, as variáveis, os testes e o backup estão em [docs/guias/08-deploy.md](docs/guias/08-deploy.md). O `render.yaml` descreve o serviço gratuito. A aplicação continua aceitando SQLite no desenvolvimento local.

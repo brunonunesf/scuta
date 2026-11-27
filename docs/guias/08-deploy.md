@@ -1,85 +1,146 @@
-# Guia 08: deploy público (bônus +10)
+# Deploy do Scuta: Vercel + Render Free + Neon Free
 
-A receita é uma só: backend no Render (free) e front na Vercel (free). A banca
-confere o bônus abrindo a URL de vocês e fazendo cadastro → login →
-post → follow → feed. Gravar o vídeo na URL pública é recomendado, mas não
-obrigatório.
+O frontend permanece em https://scuta-app.vercel.app/ (também acessível em
+https://miniprojeto3-musica.vercel.app/). A API é um serviço Python no Render;
+o banco persistente é PostgreSQL 16 no Neon. Apenas os planos Free são usados.
+O banco público começa novo: o catálogo versionado é importado no boot, sem
+contas locais e sem seed de demonstração.
 
-## Limites do free tier
+## 1. Banco no Neon
 
-1. O filesystem é efêmero. A cada deploy ou restart, o `app.db` (SQLite) e a
-   pasta `uploads/` somem. Para uma demo isso basta, desde que o banco volte
-   populado (passo 2).
-2. Sem tráfego, o Render hiberna o serviço e a primeira request demora ~1
-   minuto. Abram a URL uns minutos antes da conferência.
-3. **Nunca liguem `DEBUG=true` em produção.** O bypass de auth vira porta
-   aberta.
+Criar um projeto **Free** chamado `scuta`, região AWS US East 1, PostgreSQL 16,
+banco `scuta`, branch `production`. Manter o plano gratuito e o comportamento
+de suspensão oferecido pelo plano. Não ativar upgrade nem recursos pagos.
+Guardar a connection string na variável secreta `DATABASE_URL` do Render.
+A aplicação aceita `postgresql://` e `postgresql+psycopg://`, normaliza o driver
+e exige TLS para hosts remotos. Não colocar essa URL em `NEXT_PUBLIC_*`, no
+Git ou em exemplos de comandos com senha real.
 
-## Passo 1: backend no Render
+O esquema novo é criado pelos modelos SQLAlchemy. O atualizador legado por
+`PRAGMA` só roda no SQLite; não é um sistema de migrações PostgreSQL. Mudanças
+futuras de esquema precisam de migração explícita antes do deploy.
 
-1. [render.com](https://render.com) → New → Web Service → conectem o repo do time.
-2. Configurem:
-   - Root Directory: `backend`
-   - Build Command: `pip install uv && uv sync --frozen`
-   - Start Command: `uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - Instance Type: Free
-3. Em Environment, adicionem `SEED_ON_BOOT=true`. Não adicionem `DEBUG`.
+## 2. Serviço no Render
 
-## Passo 2: banco populado no boot (`SEED_ON_BOOT`)
+Conectar o repositório **brunonunesf/scuta** atual, não `scuta-backup`.
+O `render.yaml` da raiz é a configuração de referência:
 
-No lifespan do `main.py`, logo depois do `create_all`/rebuild:
+- Runtime Python 3.12, região Virginia, plano **Free**, branch `main`.
+- Root Directory: `backend`.
+- Build: `pip install uv && uv sync --frozen --no-dev`.
+- Start: `uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1`.
+- Health Check Path: `/health`.
+- Deploy automático desativado: publicar somente depois dos testes.
 
-```python
-import os
+Variáveis:
 
-if os.environ.get("SEED_ON_BOOT") == "true":
-    from scripts.seed import main as rodar_seed  # ou seu seed_fake
-    rodar_seed()
-```
+| Nome | Valor |
+| --- | --- |
+| `ENVIRONMENT` | `production` |
+| `DEBUG` | `false` |
+| `DATABASE_URL` | Connection string secreta do Neon |
+| `CORS_ORIGINS` | `https://scuta-app.vercel.app,https://miniprojeto3-musica.vercel.app` |
+| `PYTHON_VERSION` | `3.12.12` |
 
-Como o filesystem zera a cada restart, a demo sempre começa com a rede
-populada pelo seed fake.
+Se a criação for feita pelo formulário/API sem Root Directory, prefixar os
+comandos de build e start com `cd backend &&`. Não executar o seed de demo,
+reset de banco nem manter dados no filesystem efêmero do Render.
 
-## Passo 3: CORS com a URL pública
+**Uma instância, um worker:** árvores e reputação têm estado em memória,
+reconstruído a partir do banco no boot. Não aumentar workers ou sobrepor
+instâncias atendendo escritas sem rever essa arquitetura.
 
-O `allow_origins` do `main.py` só tem `localhost:3000`. Adicionem o domínio
-que a Vercel der. Dá para voltar aqui depois do passo 4.
+`GET /health` consulta o banco e retorna `200 {"status":"ok"}` ou
+`503 {"status":"unavailable"}`. É público e não expõe credenciais.
 
-```python
-allow_origins=[
-    "http://localhost:3000",
-    "https://SEU-FRONT.vercel.app",
-],
-```
+## 3. Frontend na Vercel
 
-Façam o commit e o Render faz o redeploy sozinho.
+Usar o projeto existente `scuta`, Root Directory `frontend`, Node 22 e domínio
+`scuta-app.vercel.app`. Confirmar a conexão Git com o **identificador do novo
+fork**: renomear o repositório anterior pode manter a integração no backup.
 
-## Passo 4: front na Vercel
+Definir `NEXT_PUBLIC_API_URL` em **Production** com a URL HTTPS real retornada
+pelo Render, sem barra final. Então fazer um **novo build/deploy**: a variável
+é incorporada ao JavaScript, não basta alterá-la depois do build. Não conectar
+previews de PRs ao banco público automaticamente; para testá-los, usar uma API
+separada e adicionar somente a origem exata dela no ambiente correspondente.
 
-1. [vercel.com](https://vercel.com) → Add New → Project → importem o repo.
-2. Root Directory: `frontend`. A Vercel detecta o Next sozinha.
-3. Em Environment Variables: `NEXT_PUBLIC_API_URL` = `https://SEU-BACK.onrender.com`.
-4. Façam o deploy. Se ainda não puseram a URL final do front no CORS, voltem
-   ao passo 3.
-
-## Verificação
+O build falha se a URL estiver ausente, não usar HTTPS ou apontar para localhost.
+Em desenvolvimento permanece o padrão http://localhost:8000. Testes locais
+podem usar a exceção explícita, que nunca funciona dentro da Vercel:
 
 ```bash
-curl -s https://SEU-BACK.onrender.com/usuarios | head -c 120
-# (a primeira pode demorar ~1 min por causa do cold start)
-# → {"items":[...],"total":...}
+cd frontend
+npm ci
+node --test scripts/validar-api.test.mjs
+ALLOW_LOCAL_API_FOR_TESTS=true NEXT_PUBLIC_API_URL=http://localhost:8000 npm run build
+PLAYWRIGHT_CHANNEL=chrome npm run test:e2e -- tests/auth.spec.ts
 ```
 
-Depois, na URL da Vercel, façam cadastro → login → post → follow → feed, o
-mesmo fluxo do vídeo. Se funcionou aí, funciona na conferência.
+## 4. Testes antes da publicação
 
-## Depois da entrega: portfólio
+SQLite, preservando todos os bancos pessoais:
 
-O repo vira público depois da entrega. Com uns 15 minutos dá para transformar a
-entrega em portfólio:
+```bash
+cd backend
+uv sync --frozen --group dev
+uv run pytest -q
+```
 
-- [ ] README com o pitch do nicho (2 parágrafos), 2–3 screenshots e a URL pública no topo
-- [ ] `RUBRICA.md`/`CATALOGO.md` movidos para `docs/`, porque são material da disciplina e não do produto
-- [ ] `DECISIONS.md` mantido. Mostrar as decisões de produto e uma escolha
-      técnica explicada (com números, se mediram algo) é o que conta num portfólio
-- [ ] URL no ar (o free tier hiberna, mas volta sozinho)
+PostgreSQL real, em processo separado. `TEST_POSTGRES_URL` deve apontar a uma
+base de testes e estar configurada no ambiente, nunca copiada com senha para
+histórico de shell ou logs:
+
+```bash
+cd backend
+uv run pytest tests_postgres -v
+```
+
+A suíte cria e remove apenas um schema aleatório `scuta_test_*`; cobre cadastro,
+duplicatas, senha errada, Bearer, CORS, catálogo, reviews derivadas, exclusão sem
+reutilizar IDs, reconstrução e persistência após novo lifespan/pool. Sem a
+variável, os testes PostgreSQL são explicitamente pulados.
+
+## 5. Aceite no site público
+
+1. Abrir a URL real da API com `/health` e conferir HTTP 200.
+2. Abrir o site; conferir no Network que nenhuma chamada vai a localhost.
+3. Criar conta de teste identificada, sair, entrar, recarregar e abrir catálogo.
+4. Publicar review de teste e consultar seu perfil.
+5. Reiniciar/republicar a API; confirmar conta, senha, token e review preservados.
+6. Conferir desktop e 360 px. Repetir após a API ficar inativa.
+7. Registrar URLs, commit, horário e resultados; nunca tokens ou senhas.
+
+Se a API estiver indisponível, o formulário preserva os campos e permite nova
+tentativa. Uma falha de rede ao validar sessão não apaga o token existente.
+
+## 6. Limites, backup e recuperação
+
+O Render Free suspende por inatividade e pode levar aproximadamente um minuto
+para iniciar. Seu disco é efêmero; o Neon mantém os dados fora desse disco.
+O PostgreSQL gratuito do Render expira em 30 dias e não é usado nesta solução.
+Não criar monitores que mantenham o serviço acordado artificialmente. Conferir
+consumo e erros nos painéis durante a entrega; atingir cotas pode suspender o
+serviço. Não contratar upgrades para contornar limites sem nova autorização.
+
+Antes de mudar esquema ou executar manutenção, gerar backup do PostgreSQL com
+`pg_dump` usando `PGSERVICE`/arquivo de senha com permissão 0600. Exemplo com
+serviço libpq previamente configurado pelo titular:
+
+```bash
+pg_dump --dbname=service=scuta --format=custom --file=scuta-backup.dump
+```
+
+Guardar o dump fora do Git. Restaurar primeiro em outro banco vazio com
+`pg_restore`, conferir contagens e jornada de login, e só então planejar uma
+troca. O plano Free não substitui uma rotina própria de backup.
+
+Para regressão sem mudança de esquema: voltar ao commit anterior compatível no
+Render e ao deploy anterior na Vercel, mantendo as mesmas variáveis e banco.
+Nunca apagar/recriar o banco como parte de rollback. Depois repetir `/health`,
+login e consulta da review. Alterações futuras de esquema exigem um plano de
+compatibilidade antes de qualquer rollback.
+
+Referências: [Render Free](https://render.com/docs/free),
+[Neon Free](https://neon.com/pricing),
+[SQLAlchemy + psycopg](https://docs.sqlalchemy.org/en/20/dialects/postgresql.html#module-sqlalchemy.dialects.postgresql.psycopg).
