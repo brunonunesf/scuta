@@ -2,7 +2,11 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import select
+from sqlalchemy import select, text
+from sqlalchemy.exc import SQLAlchemyError
+from fastapi.responses import JSONResponse
+
+from app.config import origens_permitidas
 
 from app.core.contadores import contador_iniciais
 from app.db import Base, SessionLocal, atualizar_esquema_antigo, engine
@@ -46,11 +50,22 @@ app = FastAPI(title="Rede Social da Trilha", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=origens_permitidas(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/health", tags=["health"])
+def health():
+    try:
+        with engine.connect() as conexao:
+            conexao.execute(text("SELECT 1"))
+    except SQLAlchemyError:
+        return JSONResponse(status_code=503, content={"status": "unavailable"})
+    return {"status": "ok"}
+
 
 # 1 linha por feature — registre o seu router aqui.
 app.include_router(auth.router)

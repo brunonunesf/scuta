@@ -120,6 +120,21 @@ test("formulários cabem na tela e funcionam pelo teclado", async ({ page }, tes
   }
 });
 
+test("login indisponível preserva os campos e permite tentar novamente", async ({ page }) => {
+  const username = await cadastrar(page);
+  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await page.getByLabel("Usuário", { exact: true }).fill(username);
+  await page.getByLabel("Senha", { exact: true }).fill(senha);
+  await page.route("**/auth/login", route => route.fulfill({ status: 503, contentType: "application/json", body: '{"detail":"iniciando"}' }));
+  await page.getByRole("button", { name: "Entrar", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Entre na sua conta" }).getByRole("alert")).toHaveText("O serviço está indisponível. Tente novamente em instantes.");
+  await expect(page.getByLabel("Usuário", { exact: true })).toHaveValue(username);
+  await expect(page.getByLabel("Senha", { exact: true })).toHaveValue(senha);
+  await page.unroute("**/auth/login");
+  await page.getByRole("button", { name: "Entrar", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Sair", exact: true })).toBeVisible();
+});
+
 test("401 numa chamada autenticada encerra a sessão e erro 500 permite recuperação", async ({ page }) => {
   await cadastrar(page);
   await page.route("**/auth/eu", route => route.fulfill({ status: 500, contentType: "application/json", body: '{"detail":"indisponível"}' }));

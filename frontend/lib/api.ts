@@ -1,7 +1,7 @@
 // Fetch tipado, único ponto de contato com o backend.
 // Já preparado para receber o token da auth (guia 01, Parte 2).
 
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const BASE = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000").trim().replace(/\/+$/, "");
 
 export class ApiError extends Error {
   constructor(public status: number, message: string, public fields: Record<string, string> = {}) {
@@ -23,7 +23,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
       cache: "no-store",
     });
   } catch {
-    throw new ApiError(0, "Não foi possível conectar. Confira sua conexão e tente novamente.");
+    throw new ApiError(0, "Não foi possível conectar ao serviço. Ele pode estar iniciando; aguarde um minuto e tente novamente.");
   }
 
   // Uma resposta antiga não deve encerrar uma sessão que já foi substituída.

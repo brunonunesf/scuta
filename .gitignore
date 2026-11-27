@@ -6,6 +6,8 @@
 # segredos
 .env
 .env.local
+.env.*.local
+.vercel/
 
 # python
 __pycache__/
