@@ -898,3 +898,24 @@ Completa a #12 no backend (as bibliotecas já estão na `main`). **A integraçã
 **O que já está pronto para receber qualquer um deles:** autenticação, `listar_reviews`, a tabela de seguidores, as bibliotecas (#100), as reescutas (#105) e a criação automática de tabelas novas sem migração.
 
 Claude Code redigiu este parecer; a revisão por outra pessoa do time continua pendente.
+
+## Publicação persistente do Scuta — 27/11/2026
+
+O frontend público estava compilado com localhost e a API não estava hospedada.
+A correção publica FastAPI no Render Free e PostgreSQL 16 no Neon Free, mantendo
+o domínio da Vercel. Banco novo com catálogo, sem importar contas locais nem
+executar seed de demonstração; dados ficam fora do disco efêmero do Render.
+SQLite local e seu atualizador legado continuam disponíveis. O esquema inicial
+PostgreSQL é criado pelos modelos; futuras mudanças exigem migração explícita.
+
+Uma instância/worker preserva o modelo atual de estruturas em memória. TLS na
+conexão remota, DEBUG=false, CORS com origens explícitas e /health com consulta
+ao banco. O build público exige uma URL HTTPS da API, sem localhost. Previews
+não recebem automaticamente a API/banco de produção. A integração Git da Vercel
+foi reconectada ao fork novo, preservando projeto e domínios.
+
+O plano adotado foi explicitamente somente gratuito. Aceitam-se as cotas e o
+início a frio; nenhum upgrade pago foi contratado. Deploys do Render permanecem
+manuais após validação. Procedimentos, evidências e limites estão no guia 08.
+Implementação e validação assistidas pelo Codex; testes automatizados e a
+jornada real não equivalem a revisão humana independente.

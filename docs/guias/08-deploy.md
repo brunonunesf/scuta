@@ -6,6 +6,32 @@ o banco persistente é PostgreSQL 16 no Neon. Apenas os planos Free são usados.
 O banco público começa novo: o catálogo versionado é importado no boot, sem
 contas locais e sem seed de demonstração.
 
+## Publicação verificada em 27/11/2026
+
+- Site: https://scuta-app.vercel.app/
+- API: https://scuta-api-hbo2.onrender.com
+- Saúde: https://scuta-api-hbo2.onrender.com/health
+- Código publicado: `5ebd403cb2f180272678ceb422d8f4b9e3eb9d7a` ([PR #2](https://github.com/brunonunesf/scuta/pull/2)).
+- Render Free: `scuta-api-hbo2`, uma instância/worker; Blueprint `scuta-api` acompanha `main`, com sync e deploy automáticos desativados.
+- Neon: projeto `scuta`, PostgreSQL 16, plano Free; banco `scuta`, branch `production`.
+- Vercel: projeto existente `scuta`, domínio preservado e Git reconectado ao fork atual (antes apontava ao backup).
+
+Validação: 549 testes SQLite e uma jornada de integração PostgreSQL aprovados;
+build/typecheck, dois testes de configuração do frontend e 14 cenários de
+autenticação desktop/mobile aprovados. No site real, cadastro com entrada
+automática, saída, novo login, catálogo e publicação de review funcionaram.
+Após uma republicação real da API, a sessão, conta e review permaneceram;
+`/health` retornou 200. O bundle público aponta para a API HTTPS e o preflight
+CORS do domínio público retornou 200. Sem logs de nível error na janela da
+publicação (13:51–13:57, America/Fortaleza).
+
+Foi criada uma conta identificada como **Teste de publicação**, com uma review
+de validação. Não foram importados usuários locais nem executado seed de demo.
+A conta de teste foi desconectada do navegador após a verificação.
+A hibernação real após 15 minutos sem acesso não foi aguardada nesta sessão;
+a indisponibilidade temporária e a tentativa posterior estão cobertas nos
+testes, e a limitação de início a frio permanece aplicável ao plano gratuito.
+
 ## 1. Banco no Neon
 
 Criar um projeto **Free** chamado `scuta`, região AWS US East 1, PostgreSQL 16,
