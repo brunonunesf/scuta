@@ -1,0 +1,495 @@
+{
+  "verificado_em": "2026-11-27",
+  "capas": [
+    {
+      "chave_catalogo": "spotify-4ra6zuylxk69bf3dpvpggo",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/4ra6zuyLXk69bF3dPVpGGO",
+      "titulo_fonte": "Meteoro - Ao Vivo",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0281e44cb5e9369f13005fe9d2",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-6ccku0lwjzohlaxbwp2ptk",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/6ccKu0LwJzOhLAxBwP2PTk",
+      "titulo_fonte": "Os Anjos Cantam",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027ea581f6963d14d477207234",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-38mpandijgayvdcc6npx95",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/38MpAndIjGAyVdcC6npX95",
+      "titulo_fonte": "Infiel - Ao Vivo",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027b4293f65f8fe7003c29279c",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-3jfrtzp1xapqeixeuxtavs",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/3jfrTzP1xAPQeixEUxtAvS",
+      "titulo_fonte": "Cheia de Marra",
+      "capa_url": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020ab593ddba18d0efef1e8c5a",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-3mkda6vwf0ifrl86yztljw",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/3MkdA6vwF0ifRl86yzTlJW",
+      "titulo_fonte": "Kenny G",
+      "capa_url": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0234c967477c4bf35b28a37ca2",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-1qyibnys01tjmkmoetljxn",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/1qyiBNYS01TjMkmoeTLJXN",
+      "titulo_fonte": "A Morte do Autotune",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0232ab606106f60a51b02a41c4",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-3ytxzejfevydffmuhhvti8",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/3ytXzEJFeVydFfmUhHvti8",
+      "titulo_fonte": "Negro Drama",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02497e68476e7062b1bf5ea83f",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-0onaza6lvufgqvmt8qsfd5",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/0ONAzA6lvUfGqvmT8QsfD5",
+      "titulo_fonte": "Clareou",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026444face64fc7e2742e3809c",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-35wfw6eyw39ypop2lrh11c",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/35Wfw6eyw39YpOp2lRH11c",
+      "titulo_fonte": "Burguesinha",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02fc38471df4d724849e8726cc",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-3qa7vf91ehkfoyeda5wcjb",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/3QA7VF91ehKfoYEDa5wcJb",
+      "titulo_fonte": "Mina do Condomínio",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02fc38471df4d724849e8726cc",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-2gafzg9z7ugs1imm4idrnr",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/2GAFZG9Z7UGS1iMm4Idrnr",
+      "titulo_fonte": "Apesar De Você",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02175c5e58d396b45c4f637deb",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-1msxblw7fkabfey4lgpg0e",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/1mSxbLW7fKABfeY4lGpg0E",
+      "titulo_fonte": "Velha Infância - 2004 Digital Remaster",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02663718a3cb1a4dc196aab349",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-6cbzb9mvac5s8htwklloi0",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/6cbZb9mVAc5s8HtwklLoI0",
+      "titulo_fonte": "Cheguei",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0259d95eeb37d902cc3287b574",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-28auftkmnjaqnqklhr0wev",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/28aUFtkMnJaqNQkLHR0weV",
+      "titulo_fonte": "Show das Poderosas",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b1bd3ec4ceb6f5ffbf3a7de7",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-50mawjudheoftcuiprmgxr",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/50mawjudhEofTcUIpRmGXr",
+      "titulo_fonte": "Deixa Acontecer",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c06e4179d7a0324a0733eff3",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-6djkwvaqxuvmaazo4u4cio",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/6DjKWVAqXUvMaAzO4U4CIo",
+      "titulo_fonte": "Tá Vendo Aquela Lua",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0276cb9dbfee72b93bc8d8938b",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-661ns9g25zhdih4qvshbo7",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/661Ns9G25zHdih4qVshBO7",
+      "titulo_fonte": "Anunciação",
+      "capa_url": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020b7b154fa6cba64cf53681e9",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-0jabbolc53vve33ouz7d4a",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/0jAbBolC53vVe33ouZ7D4a",
+      "titulo_fonte": "Asa Branca",
+      "capa_url": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c757b428c61a1b194e65864b",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-1x95pcqg939kcbjl6yvqgw",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/1X95pCQG939KCbJL6yVQgw",
+      "titulo_fonte": "Evidências",
+      "capa_url": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021f5649408b971c1f38e9282f",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "spotify-006pmmcuro2tfjh8sngsov",
+      "provedor": "Spotify oEmbed",
+      "fonte": "https://open.spotify.com/track/006pMMCuRo2TFjh8sNGSov",
+      "titulo_fonte": "Dias De Luta, Dias De Gloria",
+      "capa_url": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025e7cb9ed84348b98973c823f",
+      "criterio": "Referência Spotify já registrada para esta gravação."
+    },
+    {
+      "chave_catalogo": "br-joao-gilberto-chega-de-saudade",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/chega-de-saudade/550334886?i=550334887&uo=4",
+      "titulo_fonte": "Chega de Saudade",
+      "artista_fonte": "João Gilberto",
+      "album": "Chega de Saudade / O Amor, o Sorriso e a Flor",
+      "data_lancamento_fonte": "1959-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9f/1a/3d/9f1a3d06-7bf4-7abb-cfb2-6b3c81425773/cover.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-elis-regina-aguas-de-marco",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/%C3%A1guas-de-mar%C3%A7o/1443781297?i=1443781415&uo=4",
+      "titulo_fonte": "Águas de Março",
+      "artista_fonte": "Elis Regina",
+      "album": "Elis",
+      "data_lancamento_fonte": "1972-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d6/46/e1/d646e142-3379-29c9-8a5b-63bed0577752/06UMGIM53833.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-elis-regina-como-nossos-pais",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/como-nossos-pais/1413451989?i=1413452455&uo=4",
+      "titulo_fonte": "Como Nossos Pais",
+      "artista_fonte": "Elis Regina",
+      "album": "Falso Brilhante",
+      "data_lancamento_fonte": "1976-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e2/53/03/e2530336-1301-d225-e91a-5500a4fe46fd/18UMGIM35639.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-chico-buarque-construcao",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/constru%C3%A7%C3%A3o/1442845496?i=1442845504&uo=4",
+      "titulo_fonte": "Construção",
+      "artista_fonte": "Chico Buarque",
+      "album": "Construção",
+      "data_lancamento_fonte": "1971-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c5/de/62/c5de62c4-50a9-bc0a-1cb3-3836e7e0eb0e/06UMGIM31536.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-ary-barroso-aquarela-do-brasil",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/aquarela-do-brasil-2024-remastered/1726315940?i=1726315955&uo=4",
+      "titulo_fonte": "Aquarela Do Brasil (2024 Remastered)",
+      "artista_fonte": "Ary Barroso",
+      "album": "Essential Classics, Vol. 193: Ary Barroso (Remastered)",
+      "data_lancamento_fonte": "2024-01-19T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/15/b2/06/15b206b1-f902-faba-5d97-b0ebb1408420/ESC193.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-roberto-carlos-detalhes",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/detalhes-vers%C3%A3o-remasterizada/648699475?i=648699479&uo=4",
+      "titulo_fonte": "Detalhes (Versão Remasterizada)",
+      "artista_fonte": "Roberto Carlos",
+      "album": "Roberto Carlos (1971) [Remasterizado]",
+      "data_lancamento_fonte": "1971-04-07T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/12/d8/aa/12d8aaf8-2de0-f7e6-52b3-61106b3ae6fa/dj.afozycfg.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-novos-baianos-preta-pretinha",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/preta-pretinha/1831607320?i=1831607562&uo=4",
+      "titulo_fonte": "Preta Pretinha",
+      "artista_fonte": "Novos Baianos",
+      "album": "Acabou Chorare",
+      "data_lancamento_fonte": "1972-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/81/f0/78/81f0780b-c2d5-52bd-d80e-0c429eeebc36/196873466569.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-os-mutantes-panis-et-circenses",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/panis-et-circenses/1443152697?i=1443152704&uo=4",
+      "titulo_fonte": "Panis et circenses",
+      "artista_fonte": "Os Mutantes",
+      "album": "Os Mutantes",
+      "data_lancamento_fonte": "1968-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d7/fd/d1/d7fdd1ea-9025-6346-0834-48ed931dd62f/00602537449460.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-caetano-veloso-alegria-alegria",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/alegria-alegria/1443216968?i=1443217552&uo=4",
+      "titulo_fonte": "Alegria, Alegria",
+      "artista_fonte": "Caetano Veloso",
+      "album": "Caetano Veloso (Remixed Original Album)",
+      "data_lancamento_fonte": "1968-05-01T07:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ae/2f/0f/ae2f0fd0-6b64-7e2a-ca02-d876f3bb8c8d/00602537449491.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-gilberto-gil-domingo-no-parque",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/domingo-no-parque/1576811183?i=1576811360&uo=4",
+      "titulo_fonte": "Domingo no Parque",
+      "artista_fonte": "Gilberto Gil",
+      "album": "Gilberto Gil (1968)",
+      "data_lancamento_fonte": "1968-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/58/11/a7/5811a72c-4064-5c51-cc7c-ea1855604748/00191018262471_Cover.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-lulu-santos-tempos-modernos",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/tempos-modernos-remasterizado-em-2001/1410920962?i=1410922964&uo=4",
+      "titulo_fonte": "Tempos modernos (Remasterizado em 2001)",
+      "artista_fonte": "Lulu Santos",
+      "album": "Tempos modernos (2001 Remasterizado)",
+      "data_lancamento_fonte": "1987-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/12/37/eb/1237eb17-f556-de06-6e96-79c0b443f941/685738963263.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-cazuza-pro-dia-nascer-feliz",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/pro-dia-nascer-feliz-feat-ney-matogrosso/1442608018?i=1442608147&uo=4",
+      "titulo_fonte": "Pro Dia Nascer Feliz (feat. Ney Matogrosso)",
+      "artista_fonte": "Cazuza",
+      "album": "Cazuza Sem Limite",
+      "data_lancamento_fonte": "2001-01-08T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/89/68/01/896801ff-5663-2ccb-1a45-4e0292654e0a/17UM1IM23146.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-legiao-urbana-faroeste-caboclo",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/faroeste-caboclo/713516722?i=713516877&uo=4",
+      "titulo_fonte": "Faroeste Caboclo",
+      "artista_fonte": "Legião Urbana",
+      "album": "Que País É Este",
+      "data_lancamento_fonte": "1987-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d5/bd/8c/d5bd8cd9-e84c-73b0-1a4a-1ea397a71774/13UMGIM90177.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-legiao-urbana-tempo-perdido",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/tempo-perdido/713514746?i=713514810&uo=4",
+      "titulo_fonte": "Tempo Perdido",
+      "artista_fonte": "Legião Urbana",
+      "album": "Dois",
+      "data_lancamento_fonte": "1986-07-01T07:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/da/72/ed/da72edf4-27c8-2d20-a870-3259f853a866/13UABIM70454.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-os-paralamas-do-sucesso-alagados",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/alagados/1442811003?i=1442811008&uo=4",
+      "titulo_fonte": "Alagados",
+      "artista_fonte": "Os Paralamas do Sucesso & Gilberto Gil",
+      "album": "Selvagem? (Remastered)",
+      "data_lancamento_fonte": "1986-01-06T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/98/24/40/9824405e-4787-9bcd-2d22-cc1844cdaf42/00602567112129.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-titas-epitafio",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/epit%C3%A1fio/321498960?i=321499021&uo=4",
+      "titulo_fonte": "Epitáfio",
+      "artista_fonte": "Titãs",
+      "album": "A Melhor Banda de Todos Os Tempos Da Última Semana",
+      "data_lancamento_fonte": "2001-01-01T08:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dd/23/23/dd232396-4f77-3822-84a7-5fd58339aa8c/mzi.zeqjfsrw.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-ultraje-a-rigor-inutil",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/in%C3%BAtil/264602348?i=264602609&uo=4",
+      "titulo_fonte": "Inútil",
+      "artista_fonte": "Ultraje a Rigor",
+      "album": "2 é Demais",
+      "data_lancamento_fonte": "1983-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/3e/6c/56/3e6c56ea-8156-3610-1121-fa083f80d261/dj.ujrgagiu.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-ze-ramalho-chao-de-giz",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/ch%C3%A3o-de-giz/1482610392?i=1482610588&uo=4",
+      "titulo_fonte": "Chão de Giz",
+      "artista_fonte": "Zé Ramalho",
+      "album": "Zé Ramalho (Versão com Faixas Bônus)",
+      "data_lancamento_fonte": "1978-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/32/ea/ff/32eaff99-8a8e-9372-f98b-95f4bf6d7e13/886447867778.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-charlie-brown-jr-lugar-ao-sol",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/lugar-ao-sol/723409405?i=723409460&uo=4",
+      "titulo_fonte": "Lugar ao Sol",
+      "artista_fonte": "Charlie Brown Jr.",
+      "album": "100% Charlie Brown Jr. - Abalando a Sua Fábrica",
+      "data_lancamento_fonte": "1998-06-16T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e9/7c/e5/e97ce5c5-947c-94cb-bb17-34f677fcc36d/13UABIM34072.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-ana-vilela-trem-bala",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/trem-bala/1294932180?i=1294932350&uo=4",
+      "titulo_fonte": "Trem-Bala",
+      "artista_fonte": "Ana Vilela",
+      "album": "Ana Vilela",
+      "data_lancamento_fonte": "2017-10-20T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ce/cd/6f/cecd6ffb-ff26-c1cb-851d-8d4b5738d344/7891430453329.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-dominguinhos-eu-so-quero-um-xodo",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/eu-s%C3%B3-quero-um-xod%C3%B3/156324539?i=156325232&uo=4",
+      "titulo_fonte": "Eu Só Quero Um Xodó",
+      "artista_fonte": "Dominguinhos",
+      "album": "Nas Costas Do Brasil",
+      "data_lancamento_fonte": "1995-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/71/78/29/71782962-39c8-d47b-21ce-9f6e0df5ca0a/dj.yezynnje.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-falamansa-xote-dos-milagres",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/xote-dos-milagres/980072321?i=980072336&uo=4",
+      "titulo_fonte": "Xote Dos Milagres",
+      "artista_fonte": "Falamansa",
+      "album": "Deixa Entrar...",
+      "data_lancamento_fonte": "2000-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/8f/e9/6d/8fe96dbe-d2e4-0ba7-d98d-b49b7f314227/7898324300684.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-michel-telo-ai-se-eu-te-pego",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/ai-se-eu-te-pego/875864941?i=875865065&uo=4",
+      "titulo_fonte": "Ai Se Eu Te Pego",
+      "artista_fonte": "Michel Teló",
+      "album": "O Som dos Craques",
+      "data_lancamento_fonte": "2014-05-12T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/20/95/38/209538b3-d002-1ffb-2e2f-c701af65c6a3/888831079477.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-zeca-pagodinho-deixa-a-vida-me-levar",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/deixa-a-vida-me-levar/1403584724?i=1403584741&uo=4",
+      "titulo_fonte": "Deixa a Vida Me Levar",
+      "artista_fonte": "Zeca Pagodinho",
+      "album": "Deixa a Vida Me Levar",
+      "data_lancamento_fonte": "1999-04-13T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ec/8a/54/ec8a5434-b521-adf8-9b2f-312611c8f03e/18UMGIM36570.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-paulinho-da-viola-sinal-fechado",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/sinal-fechado/806235328?i=806235477&uo=4",
+      "titulo_fonte": "Sinal Fechado",
+      "artista_fonte": "Paulinho da Viola",
+      "album": "De Volta Aos Festivais",
+      "data_lancamento_fonte": "2004-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/3c/6c/7c/3c6c7cd5-eabe-0b16-ce29-cf1456b656e4/00724359825359.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-almir-sater-tocando-em-frente",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/tocando-em-frente/1380831487?i=1380831678&uo=4",
+      "titulo_fonte": "Tocando em Frente",
+      "artista_fonte": "Almir Sater",
+      "album": "Ensaio",
+      "data_lancamento_fonte": "1991-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/94/93/34/94933452-a33c-22dc-cc01-f6b4e80b57c5/cover.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-djavan-oceano",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/oceano/808275311?i=808275395&uo=4",
+      "titulo_fonte": "Oceano",
+      "artista_fonte": "Djavan",
+      "album": "Djavan",
+      "data_lancamento_fonte": "1989-03-25T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/56/8e/30/568e3096-1a3d-2822-2a47-ebaa47d59752/884977966497.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-djavan-flor-de-lis",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/flor-de-lis/379515256?i=379515281&uo=4",
+      "titulo_fonte": "Flor de Lis",
+      "artista_fonte": "Djavan",
+      "album": "A Voz e o Violão",
+      "data_lancamento_fonte": "1976-01-01T08:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/fd/23/3d/fd233dfa-51de-4111-a063-25e3fe51c56b/dj.vzveqtxn.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-jorge-ben-jor-mas-que-nada",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/mas-que-nada/1443845510?i=1443845526&uo=4",
+      "titulo_fonte": "Mas, Que Nada!",
+      "artista_fonte": "Jorge Ben Jor",
+      "album": "Samba Esquema Novo",
+      "data_lancamento_fonte": "1963-01-01T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/94/46/58/94465854-cafb-ec16-ce23-afbdae80d47c/06UMGIM46403.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    },
+    {
+      "chave_catalogo": "br-legiao-urbana-pais-e-filhos",
+      "provedor": "Apple Music / iTunes Search API",
+      "fonte": "https://music.apple.com/br/album/pais-e-filhos/713519957?i=713520007&uo=4",
+      "titulo_fonte": "Pais e Filhos",
+      "artista_fonte": "Legião Urbana",
+      "album": "As Quatro Estações",
+      "data_lancamento_fonte": "1989-10-26T12:00:00Z",
+      "capa_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d0/73/81/d07381fa-a435-02be-d726-e70f337007d2/13UMGIM90173.rgb.jpg/600x600bb.jpg",
+      "criterio": "Referência visual de lançamento que contém a faixa do artista. Não estabelece equivalência de áudio nem altera a identidade/versão curada."
+    }
+  ]
+}
