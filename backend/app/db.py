@@ -4,14 +4,33 @@ import os
 from sqlalchemy import create_engine, event, text
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+from sqlalchemy.engine import make_url
+
+from app.config import validar_producao
 
 # SQLite local, zero setup. O arquivo app.db NUNCA vai para o git (.gitignore).
 # Os testes apontam DATABASE_URL para um banco descartável (ver tests/conftest.py).
+validar_producao()
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./app.db")
 
 log = logging.getLogger("uvicorn.error")
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+
+def criar_engine(database_url: str):
+    url = make_url(database_url)
+    if url.drivername in {"postgres", "postgresql", "postgresql+psycopg"}:
+        url = url.set(drivername="postgresql+psycopg")
+        # Neon exige TLS. Testes locais podem usar o socket/loopback sem TLS.
+        if url.host not in {None, "localhost", "127.0.0.1", "::1"}:
+            url = url.update_query_dict({"sslmode": "require"})
+        return create_engine(url, pool_pre_ping=True, pool_size=3, max_overflow=2,
+                             connect_args={"connect_timeout": 10})
+    if url.get_backend_name() != "sqlite":
+        raise ValueError("DATABASE_URL deve usar SQLite ou PostgreSQL")
+    return create_engine(url, connect_args={"check_same_thread": False})
+
+
+engine = criar_engine(DATABASE_URL)
 
 
 @event.listens_for(engine, "connect")
@@ -40,6 +59,8 @@ def atualizar_esquema_antigo() -> None:
     uma review apagada pode ser reaproveitado. Isso não derruba o backend, mas a árvore dessas
     reviews fica inconsistente; o aviso na subida orienta a recriar o banco.
     """
+    if engine.dialect.name != "sqlite":
+        return  # PostgreSQL começa com o esquema atual, criado pelos modelos.
     with engine.begin() as conexao:
         # A checagem e o ALTER usam a mesma conexão, para não depender de outra conexão do pool
         # que possa estar com o esquema desatualizado.

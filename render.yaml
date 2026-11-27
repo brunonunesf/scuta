@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: scuta-api
+    runtime: python
+    plan: free
+    region: virginia
+    repo: https://github.com/brunonunesf/scuta
+    branch: main
+    rootDir: backend
+    buildCommand: pip install uv && uv sync --frozen --no-dev
+    startCommand: uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    autoDeployTrigger: off
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.12
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: CORS_ORIGINS
+        value: https://scuta-app.vercel.app,https://miniprojeto3-musica.vercel.app
+      - key: DATABASE_URL
+        sync: false
