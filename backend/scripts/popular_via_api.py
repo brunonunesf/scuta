@@ -31,6 +31,7 @@ import httpx
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from catalogo_musical import carregar_catalogo  # noqa: E402
 from cenarios_demo import preparar_cenario  # noqa: E402
 from seed_demo import SENHA_DEMO  # noqa: E402
 
@@ -109,18 +110,20 @@ def conferir_catalogo(http: httpx.Client, token: str, cenario: dict, permitir_ex
         offset += len(pagina["items"]) or total
     esperadas = {m["chave_catalogo"] for m in cenario["musicas"]}
     faltam = sorted(esperadas - set(ids))
-    extras = sorted(set(ids) - esperadas)
+    # Músicas a mais são aceitas (ex.: o catálogo ampliado data/musicas_publico.json), exceto as fictícias de teste
+    # do catálogo padrão, que indicam a mistura que o passo a passo manda evitar.
+    de_teste = {m["chave_catalogo"] for m in carregar_catalogo()} & set(ids)
     if faltam:
         raise ErroPreparacao(
             f"faltam {len(faltam)} das {len(esperadas)} músicas da demonstração no catálogo deste servidor "
             f"(ele tem {len(ids)}). Provavelmente falta CATALOGO_MUSICAL_PATH=data/musicas_demo.json no servidor. "
             "Nada foi criado além da primeira conta."
         )
-    if extras and not permitir_extras:
+    if de_teste and not permitir_extras:
         raise ErroPreparacao(
-            f"o catálogo deste servidor tem {len(extras)} música(s) além das {len(esperadas)} da demonstração "
-            "(por exemplo, as músicas de teste misturadas às da demonstração). Para um catálogo limpo, recrie o banco "
-            "antes (veja o passo a passo). Se quiser popular assim mesmo, use --permitir-musicas-extras."
+            f"o catálogo deste servidor tem {len(de_teste)} música(s) fictícia(s) de teste misturadas às da "
+            "demonstração. Para um catálogo limpo, recrie o banco antes (veja o passo a passo). "
+            "Se quiser popular assim mesmo, use --permitir-musicas-extras."
         )
     return ids
 
